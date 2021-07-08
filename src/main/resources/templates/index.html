@@ -6,16 +6,22 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    <div id="app">
-        {{message}}
-    </div>
-    <script>
-        var app=new Vue({
-            el:'#app',
-            data:{
-                message:'helloworld'
+<div id="app">
+    <button @click="showInfo">请单击</button>
+    <p>{{msg}}</p>
+</div>
+<script>
+    var app=new Vue({
+        el:'#app',
+        data:{
+            msg:''
+        },
+        methods:{
+            showInfo(){
+                this.msg='触发单击事件'
             }
-        })
-    </script>
+        }
+    })
+</script>
 </body>
 </html>

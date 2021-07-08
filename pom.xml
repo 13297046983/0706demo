@@ -49,6 +49,12 @@
             <optional>true</optional>
             <scope>true</scope>
         </dependency>
+        <!--pagehelper-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.1.2</version>
+        </dependency>
 
     </dependencies>
 
