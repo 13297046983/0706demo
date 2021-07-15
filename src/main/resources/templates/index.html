@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Vue实例</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
 <div id="app">
@@ -11,6 +12,13 @@
     <p>{{msg}}</p>
 </div>
 <script>
+    axios.get('/user/findAll')
+    .then(function (response) {
+        console.log("返回的数据",response.data);
+    })
+    .catch(function (erro) {
+        console.log("数据出错",erro);
+    })
     var app=new Vue({
         el:'#app',
         data:{

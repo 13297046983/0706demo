@@ -9,14 +9,16 @@ import com.example.demo.mapper.TestMapper;
 import com.example.demo.service.impl.PageServiceImpl;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/user")
 public class UserController {
     @Autowired
@@ -24,6 +26,7 @@ public class UserController {
     @Autowired
     public PageServiceImpl pageService;
     @RequestMapping("/findAll")
+    @ResponseBody
     public List<Test>findAll(){
         return testMapper.finAll();
     }
@@ -51,16 +54,18 @@ public class UserController {
     public PageInfo SelectPage(PageInfos pageInfo){
        return pageService.findAllPage(pageInfo);
    }
-   @RequestMapping("/doLogin")
-   public String doLogin(String username,String password){
-        if("zhang".equals(username)&&"12345".equals(password)){
-            StpUtil.login(1001);
+
+   @RequestMapping("/tologin")
+    public String tologin(String username,String password){
+        //跳过登录验证
+        if("zhang".equals(username)&&"123".equals(password)){
+            StpUtil.login(1);
             return "登录成功";
         }
         return "登录失败";
-   }
-   @RequestMapping("/isLogin")
-   public String isLogin(String username,String password){
-        return "当前会话登录："+StpUtil.isLogin();
-   }
+    }
+    @RequestMapping("/islogin")
+    public String islogin(){
+        return "当前账号是否登录"+StpUtil.isLogin();
+    }
 }
