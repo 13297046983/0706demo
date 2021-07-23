@@ -60,6 +60,7 @@ public class UserController {
         //跳过登录验证
         if("zhang".equals(username)&&"123".equals(password)){
             StpUtil.login(1);
+
             return "登录成功";
         }
         return "登录失败";
