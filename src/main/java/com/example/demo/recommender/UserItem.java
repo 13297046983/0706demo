@@ -7,7 +7,6 @@ import org.apache.mahout.cf.taste.impl.recommender.CachingRecommender;
 import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
 import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
 import org.apache.mahout.cf.taste.model.DataModel;
-import org.apache.mahout.cf.taste.model.JDBCDataModel;
 import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.recommender.Recommender;
@@ -15,6 +14,9 @@ import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 
 import java.util.List;
 
+/**
+ * @author Admin
+ */
 public class UserItem {
      /**
        * @Author: Pig_pi

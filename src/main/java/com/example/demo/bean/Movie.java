@@ -71,6 +71,7 @@ public class Movie {
         return Math.log10(count + 1);
     }
 
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Name: " + this.name + "  ");

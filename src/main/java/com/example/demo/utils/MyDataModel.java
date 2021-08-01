@@ -9,6 +9,7 @@ import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel;
 import org.apache.mahout.cf.taste.model.JDBCDataModel;
 
 public class MyDataModel {
+
     //数据模型 FileDataModel、JDBCDataModel
     public static JDBCDataModel myDataModel(){
         //数据库接口

@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +24,14 @@ public class UserController {
     private TestMapper testMapper;
     @Autowired
     public PageServiceImpl pageService;
+
     @RequestMapping("/findAll")
     @ResponseBody
     public List<Test>findAll(){
         return testMapper.finAll();
     }
     @RequestMapping("/find_user")
+    @ResponseBody
     public Test find_user(Integer id){
         return testMapper.find_user(id);
     }
@@ -43,9 +44,10 @@ public class UserController {
     }
     @GetMapping("/index")
     public String index(){
-        return "index";
+        return "render";
     }
     @GetMapping("/getUser1")
+    @ResponseBody
     public Result<User>getUser1(){
         User user=new User(1,"张三","12345","男");
         return new Result<>(user);

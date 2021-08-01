@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/jquery/1.7.2/jquery.min.js"></script>
+   <script type="text/html" src="static/js/template.js"></script>
+
+</head>
+<body>
+    <div id="templatelist"></div>
+</body>
+<script type="text/html" id="template1">
+    <% for(var i = 0;i < list.length;i++){ %>
+    <div class="card-box col-md-4 col-sm-6">
+        <div class="card" data-background="color" data-color="black">
+        <div class="header">
+        <img src="images/wc3.jpg"/>
+
+        <div class="social-line" data-buttons="2">
+        <button class="btn btn-social" onclick="window.open('')">
+        <i class="fa fa-cart-plus"></i> Buy
+    </button>
+    <button class="btn btn-social">
+    <i class="fa fa-plus"></i> Join
+    </button>
+    </div>
+    </div>
+
+    <div class="content">
+    <ch6 class="category">Interior Design</ch6>
+    <h4 class="title"><%= list[i].name %></h4>
+    <p class="description"><%= list[i].intro %></p>
+    </div>
+    </div>
+    </div>
+    <% } %>
+</script>
+<script>
+    //var data = [{name:"张三",shuoming:"女"},{name:"李四",shuoming:"男"},{name:"王五",shuoming:"女"}]
+     $.ajax({
+         type :"post",
+         url :"http://localhost:8088/user/findAll",
+         async :false,
+         success :function(data){
+     		console.log(data)
+         	var template1 = document.getElementById('template1').innerHTML;
+         	document.getElementById('templatelist').innerHTML = template(template1,{list:data})
+         }
+     });
+   /* // 模板渲染
+    var template1 = document.getElementById('template1').innerHTML;
+    document.getElementById('templatelist').innerHTML = template(template1,{list:data})*/
+</script>
+</html>

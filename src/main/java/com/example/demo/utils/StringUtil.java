@@ -9,9 +9,9 @@ public class StringUtil {
         boolean flag = false;
 
         for (String s : stringList) {
-            if (flag)
+            if (flag) {
                 builder.append(split);
-            else {
+            } else {
                 flag = true;
             }
 

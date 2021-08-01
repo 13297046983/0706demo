@@ -8,26 +8,26 @@
 </head>
 <body>
 <div id="app">
-    <button @click="showInfo">请单击</button>
-    <p>{{msg}}</p>
+    <p>{{showInfo()}}</p>
 </div>
 <script>
-    axios.get('/user/findAll')
-    .then(function (response) {
-        console.log("返回的数据",response.data);
-    })
-    .catch(function (erro) {
-        console.log("数据出错",erro);
-    })
+
     var app=new Vue({
         el:'#app',
-        data:{
-            msg:''
-        },
         methods:{
             showInfo(){
-                this.msg='触发单击事件'
+                axios.get('/user/getUser1')
+                    .then(function (response) {
+                        console.log("返回的数据",response.data);
+                        return response.data.name
+                    })
+                    .catch(function (erro) {
+                        console.log("数据出错",erro);
+                    })
             }
+        },
+        created(){
+            showInfo()
         }
     })
 </script>

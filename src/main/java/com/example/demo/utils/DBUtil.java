@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBUtil {
+    /**
+     * @return
+     */
     public static Connection getJDBCConnection() {
         String driverClassName = "com.mysql.cj.jdbc.Driver";
         String url = "jdbc:mysql://localhost/test";
